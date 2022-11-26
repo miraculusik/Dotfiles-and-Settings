@@ -59,12 +59,12 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 keymap.set("n", "<leader>q", "<C-w>h")
 keymap.set("n", "<leader>w", "<C-w>l")
-keymap.set("n", "<leader>s", "<C-w>j")
+keymap.set("n", "<leader>z", "<C-w>j")
 keymap.set("n", "<leader>a", "<C-w>k")
 --Make adjusing split sizes a bit more friendly
 --keymap.set("n", "<leader>y", ":vertical resize +2<Cr>")
 --keymap.set("n", "<leader>u", ":vertical resize -2<Cr>")
-keymap.set("n", "<leader><right>", ":vertical resize +2<Cr>")
-keymap.set("n", "<leader><ledft>", ":vertical resize -2<Cr>")
+keymap.set("n", "<leader><right>", ":vertical resize -2<Cr>")
+keymap.set("n", "<leader><left>", ":vertical resize +2<Cr>")
 keymap.set("n", "<leader><up>", ":resize +2<Cr>")
 keymap.set("n", "<leader><down>", ":resize -2<Cr>")
