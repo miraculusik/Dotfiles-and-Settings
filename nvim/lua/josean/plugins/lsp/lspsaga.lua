@@ -15,4 +15,7 @@ saga.init_lsp_saga({
 	definition_action_keys = {
 		edit = "<CR>",
 	},
+	border_style = "rounded",
+	-- finder_request_timeout = 1500,
+	finder_request_timeout = 400,
 })

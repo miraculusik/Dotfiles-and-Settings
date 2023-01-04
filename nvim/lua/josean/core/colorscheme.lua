@@ -1,13 +1,9 @@
--- set colorscheme to nightfly with protected call
--- in case it isn't installed
---
-local status, _ = pcall(vim.cmd, "colorscheme nightfly")
+require("rose-pine").setup({
+	disable_italics = true,
+})
+
+local status, _ = pcall(vim.cmd, "colorscheme rose-pine")
 if not status then
 	print("Colorscheme not found!") -- print error if colorscheme not installed
 	return
 end
--- local status, _ = pcall(vim.cmd, "colorscheme tundra")
--- if not status then
--- 	print("Colorscheme not found!") -- print error if colorscheme not installed
--- 	return
--- end

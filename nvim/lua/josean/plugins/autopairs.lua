@@ -25,6 +25,22 @@ local cmp_setup, cmp = pcall(require, "cmp")
 if not cmp_setup then
 	return
 end
-
+cmp.setup({
+	window = {
+		-- completion = { -- rounded border; thin-style scrollbar
+		-- 	border = "rounded",
+		-- 	scrollbar = "║",
+		-- },
+		-- documentation = { -- no border; native-style scrollbar
+		-- 	-- border = nil,
+		-- 	border = "rounded",
+		-- 	scrollbar = "",
+		-- 	-- other options
+		-- },
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	-- other options
+})
 -- make autopairs and completion work together
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

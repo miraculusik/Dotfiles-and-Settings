@@ -57,10 +57,10 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
-keymap.set("n", "<leader>q", "<C-w>h")
-keymap.set("n", "<leader>w", "<C-w>l")
-keymap.set("n", "<leader>z", "<C-w>j")
-keymap.set("n", "<leader>a", "<C-w>k")
+-- keymap.set("n", "<leader>q", "<C-w>h")
+-- keymap.set("n", "<leader>w", "<C-w>l")
+-- keymap.set("n", "<leader>z", "<C-w>j")
+-- keymap.set("n", "<leader>a", "<C-w>k")
 --Make adjusing split sizes a bit more friendly
 --keymap.set("n", "<leader>y", ":vertical resize +2<Cr>")
 --keymap.set("n", "<leader>u", ":vertical resize -2<Cr>")
@@ -68,3 +68,19 @@ keymap.set("n", "<leader><right>", ":vertical resize -2<Cr>")
 keymap.set("n", "<leader><left>", ":vertical resize +2<Cr>")
 keymap.set("n", "<leader><up>", ":resize +2<Cr>")
 keymap.set("n", "<leader><down>", ":resize -2<Cr>")
+
+-- run file with nodejs and python
+keymap.set("n", "<leader>rq", ":w<Cr> :!node %<Cr>")
+keymap.set("n", "<leader>rp", "!w<Cr> :!python3 %<Cr>")
+
+-- save and quit
+keymap.set("n", "<leader>w", ":w<Cr>")
+keymap.set("n", "<leader>q", ":q<Cr>")
+
+-- Bufferline
+keymap.set("n", "<leader>bv", ":bNext<Cr>")
+keymap.set("n", "<leader>bb", ":BufferLinePick<Cr>")
+keymap.set("n", "<leader>bn", ":bNext<Cr>")
+keymap.set("n", "<leader>bc", ":BufferLinePickClose<Cr>")
+keymap.set("n", "<leader>bh", ":BufferLineCloseLeft<Cr>")
+keymap.set("n", "<leader>bl", ":BufferLineCloseRight<Cr>")

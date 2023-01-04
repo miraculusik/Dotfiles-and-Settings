@@ -1,25 +1,3 @@
--- auto install packer if not installed
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
-end
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
-
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
-vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
-
 -- import packer safely
 local status, packer = pcall(require, "packer")
 if not status then
@@ -98,33 +76,29 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-	--highlight colors
+
+	-- highlight colors
 	use("brenoprata10/nvim-highlight-colors")
-	-- todo-comments
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		--[[ config = function()
-			require("todo-comments").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end, ]]
-	})
+
 	-- trouble neovim
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("trouble").setup({})
 		end,
 	})
-	if packer_bootstrap then
-		require("packer").sync()
-	end
+	-- buffer Tabs
+	use("akinsho/bufferline.nvim")
+
+	-- Tab indents
+	use("lukas-reineke/indent-blankline.nvim")
+
+	-- highlight same selected tex
+	use("RRethy/vim-illuminate")
+
+	-- Custom themes
+	use("EdenEast/nightfox.nvim")
+	use("rose-pine/neovim")
+	use("catppuccin/nvim")
 end)
